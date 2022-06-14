@@ -7,38 +7,74 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./estilo/global.css">
 
-    <title>Login</title>
+    <title></title>
+    <style>
+        body {
+            font-family:Georgia, 'Times New Roman', Times;
+            background-image:linear-gradient(35deg,gray,black );
+             
+        }
+        h1{text-align: center;
+            color: white;
+        }
+        .card{
+            background-color: blue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 5px black;
+        }
+        .usuario_senha{
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px black;
+        }
+        button{
+            background-color: white;
+            width: 50%;
+            border-radius: 5px;
+            transform: translate(50%);
+
+        }
+        button:hover{
+            background-color: red;
+            text-decoration: none;
+            
+        }
+        .cadastre-se{
+            color: white;
+            text-decoration: none;
+            transform: translate(60%);
+        }
+        p{
+            text-decoration: none;
+            color:white
+        }
+        a:hover{
+            color:red;
+        }
+    </style>
 </head>
 
 <body>
-    <div id='login' style="background-color: #add8e6">
-
-        <form class='card' method="POST" action="./paginas/validacaoLogin.php">
-            <div class="card-header">
-                <h2>Login</h2>
-            </div>
-            <div class="card-content">
-
-                <div class="card-content-area">
-                    <label for="usuario"> Usuário</label>
-                    <input type="text" id="usuario" autocomplete="off">
-                </div>
-                <div class="card-content-area">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" autocomplete="off">
-                </div>
-            </div>
-            <div class="card-footer botoes">
-                <input type="checkbox" id="manter_conectado">
-                <label for="manter_conectado"> Manter Conectado</label>
-                <input type="submit" value="Logar" class="submit">
-
-                <a href="#" class="recuperar_senha">Esqueceu a senha?</a>
-                <a class="btn btn-primary" href="http://localhost/Projetos/paginas/cadastro.php" id="Cadastre">Cadastre-se</a>
-            </div>
-        </form>
+    <div>
+    <form class='card' method="POST" action="./backend/validacaoLogin.php">
+            <h1>Login</h1>
+            <input type="text" name="usuario"class="Usuario_senha" placeholder="Usuario">
+            <br>
+            <input type="password" name="senha"class="Usuario_senha" placeholder="Senha de mp minimo 8 digitos" maxlength="8">
+            <br>
+            <button type="submit">Enviar</button>
+            <br>
+            <p><input type="checkbox" classe="checkbox"> Manter conectado </p> 
+            <p> Ainda não cadastrado ? <a class="cadastre-se" id="cadastro"href="http://localhost/Projetos/paginas/cadastro.php" id="Cadastre">Cadastre-se</a>
+    </p>
+    </form>   
     </div>
-</body>
-
-
-</body>
+</body
