@@ -44,14 +44,20 @@
             width: 70%;
             outline: none;
         }
+        a{
+            color:white;
+            text-decoration: none;
+        }
 </style>
 </head>
 <body>
-<div class='card'>   
+<div class='card'>
+<form method="POST" action="../backend/validaJogo.php" >   
             <h1>Itens</h1>
-            <label>Adicionar Jogo : <input type="text" name="adicionar_Jogo"class="adicionar_Jogo" placeholder="Coloque o nome do Jogo"><button>Enviar<br></button></label>
+            <label>Adicionar Jogo : <input type="text" name="adicionar_Jogo"class="adicionar_Jogo" placeholder="Coloque o nome do Jogo"><button type="submit">Enviar<br></button></label>
             <br><br>
-            <label>Procurar Jogos :<button>Procurar<br></button></label>
+            <label>Ver Lista de Jogos :<a href="listaJogos.php"> Procurar</label>  
             <br><br>   
     </div>
+    </form>
 </body>

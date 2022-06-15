@@ -1,3 +1,16 @@
+<!-- abrir tag php e colocar o select para printar a consulta no banco (colocar include para conexao)-->
+<?php
+include("../backend/conexao.php");
+session_start();
+
+$id_usuario = $_SESSION['idUsuario'];
+
+
+$sql="SELECT jogos FROM jogos WHERE id_usuario = $id_usuario";
+
+$execute=mysqli_query($conexao,$sql);
+
+?>
 <html lang="pt-br">
 
 <head>
@@ -15,48 +28,46 @@
             color: white;
         }
 
-        .card {
+        div {
+            width: 300px;
+            height: 300px;
+            border: none;
+            margin: 0 auto 0 auto;
             background-color: blue;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 5px 5px 5px black;
+            
+            
+
+
         }
-        .lista{
-            padding: 150px;
-            color: white;
-            width: 150px;
+        tr{
+            margin: 200px;
         }
+
+        
+        
     </style>
 </head>
 
 
 <body>
-    <div class="card">
-        <h1>Lista</h1>
-        <div class="lista">
-         <tabble>
-            <tr> <!-- 1° Linha  fazer um for ou while adicionando cada linha com o select-->
-                <td>A1</td> <!-- 1° Coluna -->
-                <td>B1</td>
-                <td>C1</td>
-            </tr>
-            <tr> <!-- 2° Linha -->
-                <td>A2</td>
-                <td>B2</td>
-                <td>C2</td>
-            </tr>
-            <tr> <!-- 3° Linha -->
-                <td>A3</td>
-                <td>B3</td>
-                <td>C3</td>
-            </tr>
-         </tabble>
-        </div>
+    
+    <h1>Lista dos Seus Jogos </h1>
+    <div>
+        <table>
+            <?php
+            while ($dado = mysqli_fetch_assoc($execute)) {
+            ?>
+                <tr>
+                    <td><?php
+                            echo $dado["jogos"];
+                        ?>
+                    </td>
+                </tr>
 
-
+            <?php
+            }
+            ?>
+        </table>
     </div>
+
 </body>
