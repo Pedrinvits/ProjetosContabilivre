@@ -13,8 +13,9 @@
         session_destroy();
     ?>
     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
         body {
-            font-family:Georgia, 'Times New Roman', Times;
+            font-family: Quicksand;
             background-image:linear-gradient(35deg,gray,black );
              
         }
@@ -22,7 +23,7 @@
             color: white;
         }
         .card{
-            background-color: blue;
+            background-color: gray;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -41,13 +42,17 @@
         }
         button{
             background-color: white;
+            color:black;
+            font-weight: bold;
             width: 50%;
             border-radius: 5px;
             transform: translate(50%);
 
         }
         button:hover{
-            background-color: red;
+            background-color: black;
+            color:white;
+            font-weight: bold;
             text-decoration: none;
             
         }
@@ -61,16 +66,19 @@
             color:white
         }
         a:hover{
-            color:red;
+            color:black;
+        }
+        ::placeholder{
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
     <div>
-    <form class='card' method="POST" action="./backend/validacaoLogin.php">
+    <form class='card' method="POST" action="backend/validacaoLogin.php">
             <h1>Login</h1>
-            <?php
+            <?php   
                 if(isset($_SESSION["Conecado"])){ //isset cria o espaco na memoria para session = usuario ja cadastrado
                     if(!$_SESSION["Conecado"]){
                         echo "<p>Login ou senha inválido.</p>";
@@ -78,14 +86,14 @@
                 }
                 
             ?>
-            <input type="text" name="usuario"class="Usuario_senha" placeholder="Usuario">
+            <input type="text" name="usuario"class="Usuario_senha" placeholder="Usuario" required >
             <br>
-            <input type="password" name="senha"class="Usuario_senha" placeholder="Senha de mp minimo 8 digitos" maxlength="8">
+            <input type="password" name="senha"class="Usuario_senha" placeholder="Senha" required >
             <br>
             <button type="submit">Enviar</button>
             <br>
             
-            <p> Ainda não cadastrado ? <a class="cadastre-se" id="cadastro"href="http://localhost/Projetos/paginas/cadastro.php" id="Cadastre">Cadastre-se</a>
+            <p> Ainda não cadastrado ? <a class="cadastre-se" id="cadastro"href="http://localhost/Projetos/frontend/cadastro.php" id="Cadastre">Cadastre-se</a>
     </p>
     </form>   
     </div>
