@@ -4,9 +4,7 @@ include("../backend/conexaoBancoProjeto.php");
 session_start();
 
 $id_usuario = $_SESSION['idUsuario'];
-
-
-$sql="SELECT jogos FROM jogos WHERE id_usuario = $id_usuario";
+$sql="SELECT * FROM jogos WHERE id_usuario = $id_usuario";
 
 $execute=mysqli_query($conexao,$sql);
 
@@ -32,20 +30,22 @@ $execute=mysqli_query($conexao,$sql);
         }
 
         div {
-            width: 300px;
-            height: 300px;
+            width: 600px;
+            height: 100%;
             border: none;
             margin: 0 auto 0 auto;
             background-color: gray;
             border-radius: 15px;
             box-shadow: 15px 15px 15px black;
             padding: 15px;
+            
 
 
         }
         table{         
             margin:auto;
             font-weight: bold;
+            
           
         }
        
@@ -56,7 +56,7 @@ $execute=mysqli_query($conexao,$sql);
             color: black;
             font-weight: bold;
             margin: 35%;
-            justify-items: end;
+            justify-items: start;
            
         }
         
@@ -64,6 +64,14 @@ $execute=mysqli_query($conexao,$sql);
             
             color: red;
             text-shadow: 15px black;
+        }
+        label.jogos{
+            margin: 45px;
+            color: white;
+        }
+        label.desc{
+            margin: 75px;
+            color: white;
         }
     </style>
 </head>
@@ -74,14 +82,27 @@ $execute=mysqli_query($conexao,$sql);
     <h1>Lista dos Seus Jogos </h1>
     
     <div>
-    
+        <label class="jogos">Jogos</label><label class="desc">Descricao</label>
        <table>
             <?php
             while ($dado = mysqli_fetch_assoc($execute)) {
             ?>
                 <tr>
+                   
                     <td><?php
                             echo $dado["jogos"];
+                        ?>
+                        
+                    </td>
+                    <td>
+                        
+                    <?php
+                            echo $dado["descricao"];
+                        ?>
+                    </td>
+                    <td>
+                    <?php
+                            echo $dado["imagem"];
                         ?>
                     </td>
                 </tr>
