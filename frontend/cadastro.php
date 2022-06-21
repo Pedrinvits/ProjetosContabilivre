@@ -1,5 +1,6 @@
 <?php //cria uma variavel erro que esta em um paragrafo dentro do html esse variavel é global, o que temos que fazer para mudarmos a mensagem de erro é dentro de um novo if com um novo get colocar outra coisa dentro das aspas e depois criar um if na pagina de validação de cadastro *criarUsuario* e colocar esse variavel no header e depois colocar o =true 
 $erro="";
+
 if (isset($_GET["erro_email"])){
     $erro="Email já existente";
 }
@@ -118,7 +119,7 @@ if (isset($_GET["erro_mesmo_email_e_senha"])){
             <p>Nova Senha <input type="password" name="Nova_senha"class="Usuario_senha" placeholder="Nova Senha"></p>
             <p>Confirme a Senha <input type="password" name="Nova_senha2" class="Usuario_senha" placeholder="Confirmar Senha"></p>
             <br>
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
             <br>         
     </p>
     <a class="btn btn-primary" href="http://localhost/Projetos/index.php" role="button">Voltar</a>
