@@ -91,6 +91,7 @@ if ($_SESSION['idUsuario'] == null) {
 .upload{
     color: white;
     
+    
 }
 
 .procurar{
@@ -103,6 +104,12 @@ if ($_SESSION['idUsuario'] == null) {
     width: 30%;
     
 }
+.input.form-control{
+    box-shadow: 2px 2px 2px black;
+    background-color: white;
+    width: 140%;
+}
+
 
     </style>
 </head>
@@ -112,8 +119,8 @@ if ($_SESSION['idUsuario'] == null) {
         <h1>Jogos</h1>
         <form method="POST" enctype="multipart/form-data" action="../backend/validaLista.php">
 
-            <label for="floatingInput">Nome do Jogo<input type="text" class="form-control" id="floatingInput" name="adicionar_Jogo"placeholder="Nome do Jogo"></label>
-            <label for="floatingTextarea"> Descrição do Jogo <textarea class="form-control" name="descricao_jogo" placeholder="Coloque uma descrição para seu jogo " id="floatingTextarea"></textarea></label>
+            <label for="floatingInput">Nome do Jogo<input type="text" class="input form-control" id="floatingInput" name="adicionar_Jogo"placeholder="Nome do Jogo"></label>
+            <label for="floatingTextarea"> Descrição do Jogo <textarea class="input form-control" name="descricao_jogo" placeholder="Coloque uma descrição para seu jogo " id="floatingTextarea"></textarea></label>
             <label>Enviar uma imagem <input type="file" class="upload" name="arquivo"></label>
            <button type="submit" class="enviar btn btn-primary">Enviar</button>
             <label class="lista"> Ver Lista de Jogos :<a href="listaJogos.php" class="procurar btn btn-primary">Procurar</a></label>

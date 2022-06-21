@@ -114,8 +114,8 @@ if (isset($_GET["erro_mesmo_email_e_senha"])){
     <form class='card' method="POST" action="../backend/validaCadastro.php">
             <h1>Cadastro</h1>
             <p class="erro"><?php echo $erro; ?></p>
-            <p>Novo Email <input type="text" name="Novo_email"class="Usuario_senha" placeholder="Novo Email"></p>
-            <p>Confirme o Email <input type="text"name="Novo_email2" class="Usuario_senha" placeholder="Confirmar Email"></p>
+            <p>Novo Email <input type="email" name="Novo_email"class="Usuario_senha" placeholder="Novo Email"></p>
+            <p>Confirme o Email <input type="email"name="Novo_email2" class="Usuario_senha" placeholder="Confirmar Email"></p>
             <p>Nova Senha <input type="password" name="Nova_senha"class="Usuario_senha" placeholder="Nova Senha"></p>
             <p>Confirme a Senha <input type="password" name="Nova_senha2" class="Usuario_senha" placeholder="Confirmar Senha"></p>
             <br>
