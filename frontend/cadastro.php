@@ -1,6 +1,6 @@
 <?php //cria uma variavel erro que esta em um paragrafo dentro do html esse variavel é global, o que temos que fazer para mudarmos a mensagem de erro é dentro de um novo if com um novo get colocar outra coisa dentro das aspas e depois criar um if na pagina de validação de cadastro *criarUsuario* e colocar esse variavel no header e depois colocar o =true 
 $erro="";
-
+session_start();
 if (isset($_GET["erro_email"])){
     $erro="Email já existente";
 }
@@ -9,6 +9,10 @@ if (isset($_GET["erro_sem_dados"])){
 }
 if (isset($_GET["erro_mesmo_email_e_senha"])){
     $erro="Mesmo Email e Senha ";
+}
+
+if (isset($_GET["Complete_o_formulario"])){
+    $erro="Cadastre uma senha";
 }
 ?>
 
@@ -109,13 +113,16 @@ if (isset($_GET["erro_mesmo_email_e_senha"])){
 </head>
 
 <body>
+
     <div id="cadastro">
 
     <form class='card' method="POST" action="../backend/validaCadastro.php">
             <h1>Cadastro</h1>
             <p class="erro"><?php echo $erro; ?></p>
-            <p>Novo Email <input type="email" name="Novo_email"class="Usuario_senha" placeholder="Novo Email"></p>
-            <p>Confirme o Email <input type="email"name="Novo_email2" class="Usuario_senha" placeholder="Confirmar Email"></p>
+            <p>Novo Email <input type="email" name="Novo_email"class="Usuario_senha" value="<?php if(isset($_SESSION["Novo_email"])){echo $_SESSION["Novo_email"];}?>"placeholder="Novo Email">
+        
+        </p>
+            <p>Confirme o Email <input type="email"name="Novo_email2" value="<?php if(isset($_SESSION["Novo_email"])){echo $_SESSION["Novo_email2"];}?>"class="Usuario_senha" placeholder="Confirmar Email"></p>
             <p>Nova Senha <input type="password" name="Nova_senha"class="Usuario_senha" placeholder="Nova Senha"></p>
             <p>Confirme a Senha <input type="password" name="Nova_senha2" class="Usuario_senha" placeholder="Confirmar Senha"></p>
             <br>
@@ -127,6 +134,8 @@ if (isset($_GET["erro_mesmo_email_e_senha"])){
     
     </div>
 </body>
-
+<?php
+    session_destroy();
+?>
 
 </body>

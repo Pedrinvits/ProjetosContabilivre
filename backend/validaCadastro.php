@@ -1,4 +1,5 @@
 <?php
+session_start();
 $valor=null;
 include("conexaoBancoProjeto.php");
 $criar_email=$_POST["Novo_email"];
@@ -7,8 +8,15 @@ $criar_email2=$_POST["Novo_email2"];
 $criar_senha2=$_POST["Nova_senha2"];
 $usu_exis="SELECT * FROM usuario WHERE email='$criar_email'";
 $valida_email=mysqli_query($conexao,$usu_exis);
+$_SESSION["Novo_email"] = $criar_email;
+$_SESSION["Novo_email2"] = $criar_email2;
 
-
+if($criar_senha == $valor || $criar_senha2== $valor){
+    
+    header("location: http://localhost/Projetos/frontend/cadastro.php?Complete_o_formulario");
+    
+     exit;
+}
 if ($criar_email == $valor || $criar_email2 == $valor || $criar_senha2 == $valor|| $criar_senha == $valor)//verificacao se o usuario nao digitou nada
 {
     
